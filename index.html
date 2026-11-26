@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Techora – How the Internet and Home Networks Work: Wi-Fi, Routers, DNS and Everyday Troubleshooting</title>
+<meta name="description" content="Techora is an educational guide to how the internet and home networks work: what routers, modems and DNS do, how Wi-Fi works, common terms explained, simple troubleshooting steps and safer network habits.">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%A1%3C/text%3E%3C/svg%3E">
+<style>
+:root{--navy:#0a2540;--navy2:#13365c;--orange:#ff7a1a;--orange2:#ffa04d;--sky:#e8f4fb;--sky2:#d3eaf7;--bg:#fbfdff;--txt:#1a2a3a;--mut:#56687a;--w:#fff;--line:#d5e3ee}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Trebuchet MS','Segoe UI',Tahoma,Arial,sans-serif;color:var(--txt);background:var(--bg);line-height:1.75;font-size:17.5px}
+h1,h2,h3,.btn,.eb{font-family:'Trebuchet MS','Segoe UI',Arial,sans-serif}
+code{font-family:Consolas,Menlo,monospace}
+a{color:#0b6fb8}
+img{max-width:100%;display:block}
+.wrap{width:100%;max-width:1220px;margin:0 auto;padding:0 26px}
+header{background:var(--w);border-bottom:3px solid var(--orange);position:sticky;top:0;z-index:10}
+header .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding-top:14px;padding-bottom:14px}
+.logo{font:800 26px 'Trebuchet MS',Arial,sans-serif;color:var(--navy);text-decoration:none}
+.logo b{color:var(--orange)}
+nav a{color:var(--navy);text-decoration:none;margin-left:21px;font-size:14.5px;font-weight:600}
+nav a:hover{color:var(--orange)}
+.hero{background:linear-gradient(135deg,var(--sky) 0%,#fff 70%)}
+.hero .wrap{padding-top:80px;padding-bottom:70px;text-align:center}
+.eb{display:inline-block;background:var(--navy);color:#fff;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;font-size:12.5px;padding:6px 16px;border-radius:4px;margin-bottom:20px}
+h1{font-size:clamp(33px,5vw,54px);line-height:1.14;color:var(--navy);max-width:880px;margin:0 auto 20px;letter-spacing:-.6px}
+h1 em{font-style:normal;color:var(--orange)}
+.hero p{max-width:680px;margin:0 auto 30px;font-size:19.5px;color:var(--mut)}
+.btn{display:inline-block;background:var(--orange);color:#fff;text-decoration:none;font-weight:700;padding:14px 32px;border-radius:6px;font-size:16px}
+.btn:hover{background:#ff8f3a}
+.path{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;margin-top:46px}
+.node{background:var(--w);border:2px solid var(--navy);border-radius:12px;padding:12px 18px;font-weight:700;font-size:14.5px;color:var(--navy);min-width:112px;box-shadow:0 4px 14px rgba(10,37,64,.1)}
+.node small{display:block;font-weight:400;color:var(--mut);font-size:12.5px}
+.arrow{color:var(--orange);font-size:26px;font-weight:800}
+section{padding:80px 0}
+.white{background:var(--w)}
+.sky{background:var(--sky)}
+.navy{background:var(--navy);color:#cbd9e8}
+.navy h2,.navy h3{color:#fff}
+h2{font-size:clamp(27px,3.3vw,37px);line-height:1.2;color:var(--navy);margin-bottom:18px;letter-spacing:-.3px}
+h3{font-size:19.5px;color:#0b6fb8;margin:4px 0 8px}
+.lead{max-width:800px;color:var(--mut);font-size:19px;margin-bottom:34px}
+p+p{margin-top:15px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.duo img{width:100%;height:420px;object-fit:cover;border-radius:14px;background:#bcd4e6;border-bottom:8px solid var(--orange)}
+.duo.rev img{order:-1}
+.journey{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;counter-reset:j}
+.jn{background:rgba(255,255,255,.07);border:1px solid #2a4a70;border-radius:12px;padding:30px 18px 22px;position:relative}
+.jn:before{counter-increment:j;content:counter(j);position:absolute;top:-15px;left:18px;width:32px;height:32px;border-radius:50%;background:var(--orange);color:#fff;font:800 16px Arial,sans-serif;display:flex;align-items:center;justify-content:center}
+.jn p{font-size:15.3px;color:#bccddf;line-height:1.65}
+.parts{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pt{background:var(--w);border:1px solid var(--line);border-top:5px solid var(--orange);border-radius:10px;padding:26px 22px}
+.pt p{font-size:15.8px;color:var(--mut);line-height:1.68}
+.gloss{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 40px}
+.gl{padding-bottom:16px;border-bottom:1px solid var(--line)}
+.gl p{font-size:16.3px;color:var(--mut);line-height:1.7}
+.gl code{background:var(--sky2);color:var(--navy);padding:1px 8px;border-radius:4px;font-size:15px;font-weight:700}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.gal img{width:100%;height:230px;object-fit:cover;border-radius:12px;background:#bcd4e6}
+.fix{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.fx{background:var(--w);border-radius:12px;padding:26px;box-shadow:0 4px 16px rgba(10,37,64,.09);border-left:6px solid #0b6fb8}
+.fx p{font-size:16px;color:var(--mut);line-height:1.7}
+.safe{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 40px}
+.sf{display:flex;gap:16px;padding-bottom:16px;border-bottom:1px solid #2a4a70}
+.sf i{flex:0 0 34px;height:34px;border-radius:8px;background:var(--orange);color:#fff;font:800 15px Arial,sans-serif;font-style:normal;display:flex;align-items:center;justify-content:center;margin-top:3px}
+.sf p{font-size:16.3px;color:#cbd9e8;line-height:1.7;margin:0}
+.faq{max-width:900px;margin:0 auto}
+.faq details{background:var(--w);border:1px solid var(--line);border-left:5px solid var(--orange);border-radius:8px;padding:17px 22px;margin-bottom:13px}
+.faq summary{cursor:pointer;font:700 17.5px 'Trebuchet MS','Segoe UI',Arial,sans-serif;color:var(--navy)}
+.faq p{margin-top:11px;color:var(--mut);font-size:16.3px}
+.disc{background:#fff7e2;border:1px solid #ecd8a0;border-radius:10px;padding:28px 30px}
+.disc h2{font-size:23px;margin-bottom:10px}
+.disc p{font-size:15.8px;color:#4a4326;line-height:1.7}
+footer{background:#061729;color:#9db3c8;padding:46px 0 30px;font-size:15px}
+footer a{color:#e1edf8;margin-right:20px}
+footer p{margin-top:14px;max-width:900px;line-height:1.6}
+@media(max-width:1000px){.duo,.journey,.parts,.gloss,.gal,.fix,.safe{grid-template-columns:1fr}.duo img{height:290px}.duo.rev img{order:0}section{padding:54px 0}nav a{margin:0 14px 0 0}.hero .wrap{padding-top:50px}.arrow{transform:rotate(90deg)}.journey{gap:30px}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap">
+<a class="logo" href="#top">Tech<b>ora</b></a>
+<nav>
+<a href="#how">How the internet works</a>
+<a href="#home">Home network</a>
+<a href="#terms">Key terms</a>
+<a href="#fix">Troubleshooting</a>
+<a href="#safe">Safer habits</a>
+<a href="#faq">FAQ</a>
+</nav>
+</div>
+</header>
+
+<main id="top">
+
+<div class="hero">
+<div class="wrap">
+<span class="eb">Internet &amp; Networking Basics</span>
+<h1>Techora: Understand How the Internet and Your <em>Home Network</em> Really Work</h1>
+<p>Wi-Fi, routers, DNS and speed tests can sound confusing. Techora explains the main ideas in plain language, so you can understand what is happening when you go online and what to check when something goes wrong.</p>
+<a class="btn" href="#how">Start Learning</a>
+<div class="path" aria-hidden="true">
+<div class="node">Your device<small>phone, laptop</small></div><span class="arrow">→</span>
+<div class="node">Wi-Fi router<small>home network</small></div><span class="arrow">→</span>
+<div class="node">Internet provider<small>ISP</small></div><span class="arrow">→</span>
+<div class="node">The internet<small>global networks</small></div><span class="arrow">→</span>
+<div class="node">Website server<small>the page you want</small></div>
+</div>
+</div>
+</div>
+
+<section class="navy" id="how">
+<div class="wrap">
+<h2>What Happens When You Open a Website?</h2>
+<p class="lead" style="color:#bccddf">A page seems to appear instantly, but several steps happen in a fraction of a second. Here is a simplified version.</p>
+<div class="journey" style="margin-top:44px">
+<div class="jn"><h3>You Ask</h3><p>You type an address or tap a link. Your device prepares a request for that page.</p></div>
+<div class="jn"><h3>DNS Looks It Up</h3><p>Names like a website address are converted into numeric addresses that computers use. This is the job of the Domain Name System.</p></div>
+<div class="jn"><h3>Data Travels</h3><p>The request is broken into small pieces called packets, which pass through your router, your provider and many networks along the way.</p></div>
+<div class="jn"><h3>The Server Replies</h3><p>The website's server receives the request and sends back the page's data, again in packets.</p></div>
+<div class="jn"><h3>Your Browser Builds It</h3><p>Your device reassembles the pieces, and your browser displays the text, images and layout on screen.</p></div>
+</div>
+</div>
+</section>
+
+<section class="white" id="home">
+<div class="wrap">
+<h2>The Parts of a Typical Home Network</h2>
+<p class="lead">Home setups vary, but most include the same few building blocks. Sometimes several are combined in one box.</p>
+<div class="parts">
+<div class="pt"><h3>Modem</h3><p>Connects your home to your internet provider's network and translates the signal into a form your equipment can use.</p></div>
+<div class="pt"><h3>Router</h3><p>Directs traffic between your devices and the internet, and gives each device a local address. Many routers also provide Wi-Fi.</p></div>
+<div class="pt"><h3>Access Points and Extenders</h3><p>Extra devices that help spread Wi-Fi to areas the main router does not reach well, such as upstairs rooms or garages.</p></div>
+<div class="pt"><h3>Your Devices</h3><p>Phones, computers, TVs, speakers and smart-home gadgets all share the connection, which can affect speed when many are active.</p></div>
+</div>
+<div class="gal">
+<img src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?auto=format&fit=crop&w=800&q=70" alt="A Wi-Fi router with antennas on a shelf" width="800" height="230" loading="lazy">
+<img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=70" alt="Network cables plugged into a switch" width="800" height="230" loading="lazy">
+<img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=800&q=70" alt="A laptop on a desk connected online" width="800" height="230" loading="lazy">
+</div>
+</div>
+</section>
+
+<section class="sky" id="wifi">
+<div class="wrap duo">
+<div>
+<h2>Getting Better Wi-Fi at Home</h2>
+<p>Wi-Fi uses radio waves, which can be weakened by distance, thick walls, metal and other electronics. Small changes in setup often make a noticeable difference.</p>
+<p><strong>Placement matters.</strong> Put the router in a central, open position, ideally off the floor and away from thick walls, metal objects and microwave ovens. Hiding it in a cabinet can reduce signal strength.</p>
+<p><strong>Understand the bands.</strong> Many routers offer two bands. The 2.4 GHz band usually reaches farther but is often slower and more crowded, while 5 GHz is generally faster over shorter distances. Choosing the right one for each device can help.</p>
+<p><strong>Consider a wired connection.</strong> For stationary devices that need steady performance, such as a desktop or streaming box, a network cable is often more reliable than Wi-Fi.</p>
+</div>
+<img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=70" alt="A glowing digital map of global network connections" width="1000" height="420" loading="lazy">
+</div>
+</section>
+
+<section class="white" id="terms">
+<div class="wrap">
+<h2>Key Terms in Plain English</h2>
+<p class="lead">A short glossary of words you will often see in settings and speed tests.</p>
+<div class="gloss">
+<div class="gl"><p><code>IP address</code> A number that identifies a device on a network, like a mailing address for data.</p></div>
+<div class="gl"><p><code>DNS</code> The system that turns website names into the numeric addresses computers use.</p></div>
+<div class="gl"><p><code>Bandwidth</code> How much data a connection can carry at once. Higher bandwidth is like a wider road.</p></div>
+<div class="gl"><p><code>Latency</code> The delay before data starts to arrive, measured in milliseconds. Low latency feels more responsive, which matters in video calls and gaming.</p></div>
+<div class="gl"><p><code>Packet</code> A small chunk of data. Information is split into packets, sent separately and reassembled at the destination.</p></div>
+<div class="gl"><p><code>SSID</code> The name of a Wi-Fi network as it appears in your device's list of networks.</p></div>
+<div class="gl"><p><code>Firewall</code> A security feature that filters network traffic according to rules. Routers and devices often include one.</p></div>
+<div class="gl"><p><code>Mbps</code> Megabits per second, the usual unit for internet speed. Real-world speeds can be lower than advertised for many reasons.</p></div>
+</div>
+</div>
+</section>
+
+<section class="sky" id="fix">
+<div class="wrap">
+<h2>Simple Troubleshooting When the Internet Feels Slow</h2>
+<p class="lead">Try these steps in order before assuming something is seriously wrong. If problems continue, contact your internet provider.</p>
+<div class="fix">
+<div class="fx"><h3>1. Check the Basics</h3><p>Confirm that cables are firmly connected and that the router and modem lights look normal. Check whether the problem affects one device or all of them.</p></div>
+<div class="fx"><h3>2. Restart Equipment</h3><p>Turn off the router and modem, wait about thirty seconds and switch them back on. This clears temporary glitches and often helps.</p></div>
+<div class="fx"><h3>3. Move Closer</h3><p>Test the connection near the router. If it improves, distance or obstacles may be the cause rather than the service itself.</p></div>
+<div class="fx"><h3>4. Reduce Congestion</h3><p>Large downloads, video streams and updates on other devices can use much of your bandwidth. Pausing them can show whether sharing is the issue.</p></div>
+<div class="fx"><h3>5. Update and Restart Devices</h3><p>Out-of-date software or a device that has run for a long time can behave oddly. Install pending updates and restart.</p></div>
+<div class="fx"><h3>6. Test More Than Once</h3><p>Speed tests vary with time, server and Wi-Fi quality. Run several, ideally on a wired connection, before drawing conclusions.</p></div>
+</div>
+</div>
+</section>
+
+<section class="navy" id="safe">
+<div class="wrap">
+<h2>Safer Habits for Your Home Network</h2>
+<p class="lead" style="color:#bccddf">A few simple settings reduce common risks. No setup can guarantee complete security.</p>
+<div class="safe">
+<div class="sf"><i>01</i><p><strong>Change default passwords.</strong> Replace the router's default login and Wi-Fi password with strong, unique ones.</p></div>
+<div class="sf"><i>02</i><p><strong>Use modern Wi-Fi security.</strong> Choose WPA2 or WPA3 where available and avoid open or outdated security modes.</p></div>
+<div class="sf"><i>03</i><p><strong>Keep firmware updated.</strong> Router makers release updates to fix problems and security weaknesses. Enable automatic updates if offered.</p></div>
+<div class="sf"><i>04</i><p><strong>Use a guest network.</strong> Visitors and smart gadgets can use a separate network, keeping your main devices apart.</p></div>
+<div class="sf"><i>05</i><p><strong>Be careful on public Wi-Fi.</strong> Avoid entering sensitive information on open networks and prefer secure, encrypted connections.</p></div>
+<div class="sf"><i>06</i><p><strong>Review connected devices.</strong> Occasionally check the list in your router's settings for devices you do not recognise.</p></div>
+</div>
+<div class="gal">
+<img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=70" alt="A digital padlock symbol representing online security" width="800" height="230" loading="lazy" style="grid-column:span 3;height:260px">
+</div>
+</div>
+</section>
+
+<section class="white" id="faq">
+<div class="wrap faq">
+<h2 style="text-align:center">Frequently Asked Questions</h2>
+<details><summary>What is Techora?</summary><p>Techora is an informational website that provides general educational content about the internet and home networking. It is not an internet provider, equipment seller or technical support service.</p></details>
+<details><summary>What is the difference between a modem and a router?</summary><p>A modem connects your home to your internet provider. A router shares that connection among your devices and often provides Wi-Fi. Some providers supply one device that does both.</p></details>
+<details><summary>Why is my internet slower than the speed I pay for?</summary><p>Wi-Fi quality, distance, congestion, device limits and the website's own server can all reduce real-world speeds. Testing on a wired connection helps identify the cause.</p></details>
+<details><summary>Should I leave my router on all the time?</summary><p>Most routers are designed to stay on. An occasional restart can clear temporary issues, and you should follow the manufacturer's guidance.</p></details>
+<details><summary>Is it safe to use public Wi-Fi?</summary><p>It carries more risk than a private network. Avoid sensitive activities when possible, use secure websites and consider additional protections recommended by trusted sources.</p></details>
+<details><summary>Does Techora sell routers, internet plans or tech support?</summary><p>No. This page is an educational guide only and does not sell equipment, services or support.</p></details>
+</div>
+</section>
+
+<section class="sky">
+<div class="wrap">
+<div class="disc" id="disclaimer">
+<h2>Disclaimer</h2>
+<p>The information on this page is provided for general educational and informational purposes only. Network equipment, settings and internet services differ between providers, regions and devices, and Techora makes no guarantee that any step will resolve a particular problem or improve speed. Nothing here is professional IT, networking, cybersecurity, legal or technical-support advice, and the habits described cannot guarantee protection against all threats. Changing router settings incorrectly may interrupt your connection, so follow your device's manual and your provider's guidance, and seek qualified help for important or business systems. Images are used for illustration only. Any third-party names mentioned belong to their respective owners. You use this information at your own discretion and risk. Please also read our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms &amp; Conditions</a>.</p>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+<strong style="color:#fff;font-size:20px">Techora</strong>
+<p><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="#disclaimer">Disclaimer</a></p>
+<p>&copy; 2026 Techora. All rights reserved. This website provides general educational information about the internet and home networking and does not sell products or services.</p>
+</div>
+</footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Techora – How the Internet and Home Networks Work","description":"Educational guide to how the internet and home networks work: routers, Wi-Fi, DNS, key terms, troubleshooting and safer habits.","inLanguage":"en"}
+</script>
+</body>
+</html>
